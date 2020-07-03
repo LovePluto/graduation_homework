@@ -14,4 +14,16 @@ public class MiddleLockerTest {
 
         assertNotNull(ticket);
     }
+
+    @Test
+    public void should_get_bag_when_pick_up_given_middle_locker_and_ticket() {
+        MiddleLocker middleLocker = new MiddleLocker();
+        Bag exceptedBag = new Bag();
+
+        Ticket ticket = middleLocker.save(exceptedBag);
+        Bag actualBag = middleLocker.pickUp(ticket);
+
+        assertNotNull(ticket);
+        assertSame(exceptedBag,actualBag);
+    }
 }
