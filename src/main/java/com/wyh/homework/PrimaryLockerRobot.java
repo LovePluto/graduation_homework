@@ -12,4 +12,8 @@ public class PrimaryLockerRobot {
     public Ticket save(Bag bag) {
         return middleLockers.get(0).save(bag);
     }
+
+    public Bag pickUp(Ticket ticket) {
+        return middleLockers.get(0).pickUp(ticket);
+    }
 }
