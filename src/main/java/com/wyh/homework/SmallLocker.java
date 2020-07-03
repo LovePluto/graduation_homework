@@ -1,7 +1,19 @@
 package com.wyh.homework;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class SmallLocker {
+
+    private Map<Ticket, Bag> map = new HashMap<>();
+
     public Ticket save(Bag bag) {
-        return new Ticket();
+        Ticket ticket = new Ticket();
+        map.put(ticket, bag);
+        return ticket;
+    }
+
+    public Bag pickUp(Ticket ticket) {
+        return map.get(ticket);
     }
 }
