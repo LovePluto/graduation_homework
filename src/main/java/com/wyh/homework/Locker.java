@@ -16,12 +16,29 @@ public abstract class Locker {
     private Map<Ticket, Bag> map = new HashMap<>();
 
     public Ticket save(Bag bag) {
+        if (!this.hasCapacity()) {
+            return null;
+        }
         Ticket ticket = new Ticket();
         map.put(ticket, bag);
+        availableCapacity--;
         return ticket;
     }
 
     public Bag pickUp(Ticket ticket) {
-        return map.get(ticket);
+        Bag bag = map.get(ticket);
+        if (bag != null) {
+            availableCapacity++;
+            return bag;
+        }
+        return null;
+    }
+
+    public boolean hasCapacity() {
+        return availableCapacity > 0;
+    }
+
+    public boolean hasValidTicket(Ticket ticket) {
+        return map.containsKey(ticket);
     }
 }

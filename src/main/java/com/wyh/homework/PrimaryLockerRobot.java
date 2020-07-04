@@ -10,10 +10,19 @@ public class PrimaryLockerRobot {
     }
 
     public Ticket save(Bag bag) {
-        return middleLockers.get(0).save(bag);
+        return middleLockers
+                       .stream()
+                       .filter(Locker::hasCapacity)
+                       .findFirst()
+                       .map(Locker -> Locker.save(bag))
+                       .orElse(null);
     }
 
     public Bag pickUp(Ticket ticket) {
-        return middleLockers.get(0).pickUp(ticket);
+        return middleLockers.stream()
+                       .filter(locker -> locker.hasValidTicket(ticket))
+                       .findFirst()
+                       .map(locker -> locker.pickUp(ticket))
+                       .orElse(null);
     }
 }

@@ -27,6 +27,21 @@ public class PrimaryLockerRobotTest {
         Bag actualBag = primaryLockerRobot.pickUp(ticket);
 
         assertNotNull(ticket);
-        assertSame(exceptedBag,actualBag);
+        assertSame(exceptedBag, actualBag);
+    }
+
+    @Test
+    public void should_get_ticket_and_save_2nd_locker_when_save_bag_given_1st_locker_fulled_and_2nd_locker_free() {
+        MiddleLocker middleLocker1 = new MiddleLocker(1);
+        MiddleLocker middleLocker2 = new MiddleLocker(5);
+        PrimaryLockerRobot primaryLockerRobot = new PrimaryLockerRobot(asList(middleLocker1, middleLocker2));
+        Bag exceptedBag = new Bag();
+
+        primaryLockerRobot.save(new Bag());
+        Ticket ticket = primaryLockerRobot.save(exceptedBag);
+        Bag actualBag = middleLocker2.pickUp(ticket);
+
+        assertNotNull(ticket);
+        assertSame(exceptedBag, actualBag);
     }
 }
