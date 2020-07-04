@@ -23,3 +23,6 @@ given PrimaryLoc kerRobot 第一个 MiddleLocker 存满，第二个 MiddleLocker
 tasking 8
 given LargeLocker，when 存包，then 存包成功，返回 ticket。
 
+tasking 9
+given LargeLocker ticket，when 取包，then 取包成功。
+
