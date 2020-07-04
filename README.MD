@@ -18,4 +18,8 @@ tasking 6
 given PrimaryLockerRobot ticket， when 取包，then 取包成功
 
 tasking 7
-given PrimaryLockerRobot 第一个 MiddleLocker 存满，第二个 MiddleLocker 有位置，when 存包，then 存入第二个 MiddleLocker 成功，返回 ticket
+given PrimaryLoc kerRobot 第一个 MiddleLocker 存满，第二个 MiddleLocker 有位置，when 存包，then 存入第二个 MiddleLocker 成功，返回 ticket
+
+tasking 8
+given LargeLocker，when 存包，then 存包成功，返回 ticket。
+
