@@ -5,11 +5,11 @@ import org.junit.Test;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertSame;
 
-public class SmallLockerTest {
+public class SmallLockerTest extends BaseTest {
 
     @Test
     public void should_get_ticket_when_save_bag_given_small_locker() {
-        SmallLocker smallLocker = new SmallLocker(5);
+        SmallLocker smallLocker = generateSmallLocker(5);
 
         Ticket ticket = smallLocker.save(new Bag());
 
@@ -18,7 +18,7 @@ public class SmallLockerTest {
 
     @Test
     public void should_get_bag_when_pick_up_given_small_locker_and_ticket() {
-        SmallLocker smallLocker = new SmallLocker(5);
+        SmallLocker smallLocker = generateSmallLocker(5);
         Bag expectedBag = new Bag();
 
         Ticket ticket = smallLocker.save(expectedBag);

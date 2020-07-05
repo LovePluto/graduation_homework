@@ -5,11 +5,11 @@ import org.junit.Test;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertSame;
 
-public class LargeLockerTest {
+public class LargeLockerTest extends BaseTest{
 
     @Test
     public void should_get_ticket_when_save_bag_given_large_locker() {
-        LargeLocker largeLocker = new LargeLocker(5);
+        LargeLocker largeLocker = generateLargeLocker(5);
 
         Ticket ticket = largeLocker.save(new Bag());
 
@@ -18,7 +18,7 @@ public class LargeLockerTest {
 
     @Test
     public void should_get_bag_when_pick_up_given_large_locker_and_ticket() {
-        LargeLocker largeLocker = new LargeLocker(5);
+        LargeLocker largeLocker = generateLargeLocker(5);
         Bag expectedBag = new Bag();
 
         Ticket ticket = largeLocker.save(expectedBag);

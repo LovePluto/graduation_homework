@@ -1,20 +1,20 @@
 package com.wyh.homework;
 
 public class LockerRobotManager {
-    private Locker locker;
+    private Locker smallLocker;
     private PrimaryLockerRobot primaryLockerRobot;
     private SupperLockerRobot supperLockerRobot;
 
-    public LockerRobotManager(Locker locker,
+    public LockerRobotManager(SmallLocker smallLocker,
                               PrimaryLockerRobot primaryLockerRobot,
                               SupperLockerRobot supperLockerRobot) {
-        this.locker = locker;
+        this.smallLocker = smallLocker;
         this.primaryLockerRobot = primaryLockerRobot;
         this.supperLockerRobot = supperLockerRobot;
     }
 
     public Ticket save(Bag bag) {
-        Ticket ticket = locker.save(bag);
+        Ticket ticket = smallLocker.save(bag);
         if (ticket != null) {
             return ticket;
         }
@@ -30,7 +30,7 @@ public class LockerRobotManager {
     }
 
     public Bag pickUp(Ticket ticket) {
-        Bag bag = locker.pickUp(ticket);
+        Bag bag = smallLocker.pickUp(ticket);
         if (bag != null) {
             return bag;
         }

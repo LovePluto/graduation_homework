@@ -6,12 +6,11 @@ import static java.util.Arrays.asList;
 import static java.util.Collections.singletonList;
 import static org.junit.Assert.*;
 
-public class PrimaryLockerRobotTest {
+public class PrimaryLockerRobotTest extends BaseTest {
 
     @Test
     public void should_get_ticket_when_save_bag_given_primary_locker_robot_and_middle_locker() {
-        MiddleLocker middleLocker = new MiddleLocker(5);
-        PrimaryLockerRobot primaryLockerRobot = new PrimaryLockerRobot(singletonList(middleLocker));
+        PrimaryLockerRobot primaryLockerRobot = generatePrimaryLockerRobot(2, 5);
 
         Ticket ticket = primaryLockerRobot.save(new Bag());
 
@@ -20,8 +19,7 @@ public class PrimaryLockerRobotTest {
 
     @Test
     public void should_get_bag_when_pick_up_given_primary_locker_robot_and_ticket() {
-        MiddleLocker middleLocker = new MiddleLocker(5);
-        PrimaryLockerRobot primaryLockerRobot = new PrimaryLockerRobot(singletonList(middleLocker));
+        PrimaryLockerRobot primaryLockerRobot = generatePrimaryLockerRobot(2, 5);
         Bag expectedBag = new Bag();
 
         Ticket ticket = primaryLockerRobot.save(expectedBag);
