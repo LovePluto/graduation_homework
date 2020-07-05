@@ -49,6 +49,11 @@ given: SupperLockerRobot, bag
 when: 存包
 then： 存包空置率最大的 locker, ticket
 
+tasking 11  
+given: SupperLockerRobot ticket  
+when: 取包  
+then: 取包成功  
+
 
 
 

@@ -24,4 +24,12 @@ public class SupperLockerRobot {
         }
         return null;
     }
+
+    public Bag pickUp(Ticket ticket) {
+        return largeLockers.stream()
+                       .filter(locker -> locker.hasValidTicket(ticket))
+                       .findFirst()
+                       .map(locker -> locker.pickUp(ticket))
+                       .orElse(null);
+    }
 }

@@ -21,5 +21,15 @@ public class SupperLockerRobotTest {
         assertSame(exceptedBag, largeLocker2.pickUp(ticket));
     }
 
+    @Test
+    public void should_get_bag_when_pick_up_bag_given_supper_locker_robot_and_ticket(){
+        LargeLocker largeLocker1 = new LargeLocker(5);
+        LargeLocker largeLocker2 = new LargeLocker(5);
+        SupperLockerRobot supperLockerRobot = new SupperLockerRobot(asList(largeLocker1, largeLocker2));
+        Bag exceptedBag = new Bag();
 
+        Ticket ticket = supperLockerRobot.save(exceptedBag);
+
+        assertSame(exceptedBag,supperLockerRobot.pickUp(ticket));
+    }
 }
