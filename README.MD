@@ -64,6 +64,11 @@ given: LockerRobotManager ticket
 when: 取包
 then: 取包成功
 
+tasking 14
+given: SmallLocker, 不是 SmallerLocker 产生的 ticket
+when: 取包
+then: 提示 ticket 类型错误错误
+
 
 
 
