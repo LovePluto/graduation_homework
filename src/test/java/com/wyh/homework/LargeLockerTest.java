@@ -34,4 +34,11 @@ public class LargeLockerTest extends BaseTest{
 
         largeLocker.pickUp(new Ticket());
     }
+
+    @Test(expected = LockerIsFullException.class)
+    public void should_throw_locker_is_full_exception_when_save_bag_given_locker_is_full() {
+        LargeLocker largeLocker = generateLargeLocker(1);
+        largeLocker.save(new LargeBag());
+        largeLocker.save(new LargeBag());
+    }
 }

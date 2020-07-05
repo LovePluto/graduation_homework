@@ -33,4 +33,5 @@ public class MiddleLockerTest extends BaseTest{
 
         middleLocker.pickUp(new Ticket());
     }
+
 }

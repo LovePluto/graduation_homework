@@ -17,7 +17,7 @@ public abstract class Locker<T> {
 
     public T save(Bag bag, Class<T> ticketType) {
         if (!this.hasCapacity()) {
-            return null;
+            throw new LockerIsFullException();
         }
         T ticket = null;
         try {

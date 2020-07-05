@@ -17,10 +17,10 @@ public class PrimaryLockerRobot extends LockerRobot {
     }
 
     public Ticket save(MiddleBag bag) {
-
         return getLockers().stream()
                        .filter(Locker::hasCapacity)
                        .findFirst()
-                       .map(smallLocket -> (Ticket) smallLocket.save(bag, MiddleTicket.class)).orElse(null);
+                       .map(smallLocket -> (Ticket) smallLocket.save(bag, MiddleTicket.class))
+                       .orElseThrow(LockerIsFullException::new);
     }
 }

@@ -43,4 +43,12 @@ public class PrimaryLockerRobotTest extends BaseTest {
         assertNotNull(ticket);
         assertSame(expectedBag, actualBag);
     }
+
+    @Test(expected = LockerIsFullException.class)
+    public void should_throw_locker_is_full_exception_when_save_bag_given_locker_is_full() {
+        PrimaryLockerRobot primaryLockerRobot = generatePrimaryLockerRobot(1, 1);
+
+        primaryLockerRobot.save(new MiddleBag());
+        primaryLockerRobot.save(new MiddleBag());
+    }
 }

@@ -24,4 +24,14 @@ public class LockerRobotManagerTest extends BaseTest {
 
         assertSame(expectedBag, lockerRobotManager.pickUp(ticket));
     }
+
+    @Test(expected = LockerIsFullException.class)
+    public void should_throw_locker_is_full_exception_when_save_bag_given_locker_is_full() {
+        LockerRobotManager lockerRobotManager = generateLockerRobotManager(1, 1);
+
+        lockerRobotManager.save(new LargeBag());
+        lockerRobotManager.save(new LargeBag());
+        lockerRobotManager.save(new LargeBag());
+        lockerRobotManager.save(new LargeBag());
+    }
 }

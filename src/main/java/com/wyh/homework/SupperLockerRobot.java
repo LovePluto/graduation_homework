@@ -16,9 +16,10 @@ public class SupperLockerRobot extends LockerRobot {
                 vacancyRate = locker.getVacancyRate();
             }
         }
-        if (savedLocker != null) {
-            return savedLocker.save(bag, LargeTicket.class);
+        if (savedLocker == null) {
+            throw new LockerIsFullException();
         }
-        return null;
+        return savedLocker.save(bag, LargeTicket.class);
+
     }
 }
