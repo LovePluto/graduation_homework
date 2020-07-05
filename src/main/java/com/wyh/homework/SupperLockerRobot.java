@@ -2,18 +2,15 @@ package com.wyh.homework;
 
 import java.util.List;
 
-public class SupperLockerRobot {
-    private List<LargeLocker> largeLockers;
-
-    public SupperLockerRobot(List<LargeLocker> largeLockers) {
-        this.largeLockers = largeLockers;
-
+public class SupperLockerRobot extends LockerRobot {
+    public SupperLockerRobot(List<LargeLocker> lockers) {
+        super(lockers);
     }
 
     public Ticket save(Bag bag) {
         LargeLocker savedLocker = null;
         double vacancyRate = 0.00;
-        for (LargeLocker locker : largeLockers) {
+        for (LargeLocker locker : (List<LargeLocker>) getLockers()) {
             if (locker.hasCapacity() && locker.getVacancyRate() > vacancyRate) {
                 savedLocker = locker;
                 vacancyRate = locker.getVacancyRate();
@@ -23,13 +20,5 @@ public class SupperLockerRobot {
             return savedLocker.save(bag);
         }
         return null;
-    }
-
-    public Bag pickUp(Ticket ticket) {
-        return largeLockers.stream()
-                       .filter(locker -> locker.hasValidTicket(ticket))
-                       .findFirst()
-                       .map(locker -> locker.pickUp(ticket))
-                       .orElse(null);
     }
 }

@@ -2,27 +2,18 @@ package com.wyh.homework;
 
 import java.util.List;
 
-public class PrimaryLockerRobot {
-    private List<MiddleLocker> middleLockers;
+public class PrimaryLockerRobot extends LockerRobot {
 
-    public PrimaryLockerRobot(List<MiddleLocker> middleLockers) {
-        this.middleLockers = middleLockers;
+    public PrimaryLockerRobot(List<MiddleLocker> lockers) {
+        super(lockers);
     }
 
     public Ticket save(Bag bag) {
-        return middleLockers
+        return getLockers()
                        .stream()
                        .filter(Locker::hasCapacity)
                        .findFirst()
                        .map(Locker -> Locker.save(bag))
-                       .orElse(null);
-    }
-
-    public Bag pickUp(Ticket ticket) {
-        return middleLockers.stream()
-                       .filter(locker -> locker.hasValidTicket(ticket))
-                       .findFirst()
-                       .map(locker -> locker.pickUp(ticket))
                        .orElse(null);
     }
 }
