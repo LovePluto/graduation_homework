@@ -28,4 +28,20 @@ public class LockerRobotManager {
         }
         return null;
     }
+
+    public Bag pickUp(Ticket ticket) {
+        Bag bag = locker.pickUp(ticket);
+        if (bag != null) {
+            return bag;
+        }
+        bag = primaryLockerRobot.pickUp(ticket);
+        if (bag != null) {
+            return bag;
+        }
+        bag = supperLockerRobot.pickUp(ticket);
+        if (bag != null) {
+            return bag;
+        }
+        return null;
+    }
 }
