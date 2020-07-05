@@ -41,4 +41,12 @@ public abstract class Locker {
     public boolean hasValidTicket(Ticket ticket) {
         return map.containsKey(ticket);
     }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public int getAvailableCapacity() {
+        return availableCapacity;
+    }
 }

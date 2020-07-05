@@ -44,5 +44,12 @@ given: LargeLocker ticket
 when: 取包  
 then: 取包成功  
 
+tasing 10
+given: SupperLockerRobot, bag  
+when: 存包
+then： 存包空置率最大的 locker, ticket
+
+
+
 
 
