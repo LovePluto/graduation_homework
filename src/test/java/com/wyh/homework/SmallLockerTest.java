@@ -41,4 +41,11 @@ public class SmallLockerTest extends BaseTest {
         smallLocker.save(new SmallBag());
         smallLocker.save(new SmallBag());
     }
+
+    @Test(expected = TicketInvalidException.class)
+    public void should_throw_ticket_is_invalid_exception_when_pick_up_bag_given_ticket_is_invalid() {
+        SmallLocker smallLocker = generateSmallLocker(1);
+
+        smallLocker.pickUp(new SmallTicket());
+    }
 }

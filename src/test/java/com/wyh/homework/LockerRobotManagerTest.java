@@ -34,4 +34,11 @@ public class LockerRobotManagerTest extends BaseTest {
         lockerRobotManager.save(new LargeBag());
         lockerRobotManager.save(new LargeBag());
     }
+
+    @Test(expected = TicketInvalidException.class)
+    public void should_throw_ticket_is_invalid_exception_when_pick_up_bag_given_ticket_is_invalid() {
+        LockerRobotManager lockerRobotManager = generateLockerRobotManager(1, 1);
+
+        lockerRobotManager.pickUp(new SmallTicket());
+    }
 }

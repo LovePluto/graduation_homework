@@ -15,7 +15,7 @@ public class LockerRobot {
                        .filter(locker -> locker.hasValidTicket(ticket))
                        .findFirst()
                        .map(locker -> locker.pickUp(ticket))
-                       .orElse(null);
+                       .orElseThrow(TicketInvalidException::new);
     }
 
     public List<? extends Locker> getLockers() {

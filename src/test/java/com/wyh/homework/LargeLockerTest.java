@@ -41,4 +41,11 @@ public class LargeLockerTest extends BaseTest{
         largeLocker.save(new LargeBag());
         largeLocker.save(new LargeBag());
     }
+
+    @Test(expected = TicketInvalidException.class)
+    public void should_throw_ticket_is_invalid_exception_when_pick_up_bag_given_ticket_is_invalid() {
+        LargeLocker largeLocker = generateLargeLocker(1);
+
+        largeLocker.pickUp(new LargeTicket());
+    }
 }

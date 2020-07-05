@@ -51,4 +51,11 @@ public class PrimaryLockerRobotTest extends BaseTest {
         primaryLockerRobot.save(new MiddleBag());
         primaryLockerRobot.save(new MiddleBag());
     }
+
+    @Test(expected = TicketInvalidException.class)
+    public void should_throw_ticket_is_invalid_exception_when_pick_up_bag_given_ticket_is_invalid() {
+        PrimaryLockerRobot primaryLockerRobot = generatePrimaryLockerRobot(1, 1);
+
+        primaryLockerRobot.pickUp(new MiddleTicket());
+    }
 }

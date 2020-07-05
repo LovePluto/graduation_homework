@@ -31,6 +31,9 @@ public abstract class Locker<T> {
     }
 
     public Bag pickUp(T ticket) {
+        if (!map.containsKey(ticket)) {
+            throw new TicketInvalidException();
+        }
         Bag bag = map.get(ticket);
         if (bag != null) {
             availableCapacity++;

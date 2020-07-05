@@ -34,4 +34,10 @@ public class MiddleLockerTest extends BaseTest{
         middleLocker.pickUp(new Ticket());
     }
 
+    @Test(expected = TicketInvalidException.class)
+    public void should_throw_ticket_is_invalid_exception_when_pick_up_bag_given_ticket_is_invalid() {
+        MiddleLocker middleLocker = generateMiddleLocker(1);
+
+        middleLocker.pickUp(new MiddleTicket());
+    }
 }
