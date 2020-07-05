@@ -1,7 +1,7 @@
 package com.wyh.homework;
 
 public class LockerRobotManager {
-    private Locker smallLocker;
+    private SmallLocker smallLocker;
     private PrimaryLockerRobot primaryLockerRobot;
     private SupperLockerRobot supperLockerRobot;
 

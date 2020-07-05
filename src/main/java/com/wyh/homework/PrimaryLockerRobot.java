@@ -8,12 +8,19 @@ public class PrimaryLockerRobot extends LockerRobot {
         super(lockers);
     }
 
+    @Override
+    public Bag pickUp(Ticket ticket) {
+        if (!(ticket instanceof MiddleTicket)) {
+            throw new TicketTypeException();
+        }
+        return super.pickUp(ticket);
+    }
+
     public Ticket save(Bag bag) {
-        return getLockers()
-                       .stream()
+
+        return getLockers().stream()
                        .filter(Locker::hasCapacity)
                        .findFirst()
-                       .map(Locker -> Locker.save(bag))
-                       .orElse(null);
+                       .map(smallLocket -> (Ticket) smallLocket.save(bag, MiddleTicket.class)).orElse(null);
     }
 }

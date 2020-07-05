@@ -17,7 +17,7 @@ public class SupperLockerRobot extends LockerRobot {
             }
         }
         if (savedLocker != null) {
-            return savedLocker.save(bag);
+            return savedLocker.save(bag, LargeTicket.class);
         }
         return null;
     }
