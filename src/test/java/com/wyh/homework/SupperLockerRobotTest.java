@@ -12,8 +12,8 @@ public class SupperLockerRobotTest extends BaseTest {
         LargeLocker largeLocker1 = new LargeLocker(5);
         LargeLocker largeLocker2 = new LargeLocker(5);
         SupperLockerRobot supperLockerRobot = new SupperLockerRobot(asList(largeLocker1, largeLocker2));
-        largeLocker1.save(new Bag());
-        Bag expectedBag = new Bag();
+        largeLocker1.save(new LargeBag());
+        LargeBag expectedBag = new LargeBag();
 
         Ticket ticket = supperLockerRobot.save(expectedBag);
 
@@ -24,7 +24,7 @@ public class SupperLockerRobotTest extends BaseTest {
     @Test
     public void should_get_bag_when_pick_up_bag_given_supper_locker_robot_and_ticket() {
         SupperLockerRobot supperLockerRobot = generateSupperLockerRobot(2, 5);
-        Bag expectedBag = new Bag();
+        LargeBag expectedBag = new LargeBag();
 
         Ticket ticket = supperLockerRobot.save(expectedBag);
 

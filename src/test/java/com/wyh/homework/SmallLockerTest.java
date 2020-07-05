@@ -11,7 +11,7 @@ public class SmallLockerTest extends BaseTest {
     public void should_get_ticket_when_save_bag_given_small_locker() {
         SmallLocker smallLocker = generateSmallLocker(5);
 
-        Ticket ticket = smallLocker.save(new Bag());
+        Ticket ticket = smallLocker.save(new SmallBag());
 
         assertNotNull(ticket);
     }
@@ -19,7 +19,7 @@ public class SmallLockerTest extends BaseTest {
     @Test
     public void should_get_bag_when_pick_up_given_small_locker_and_ticket() {
         SmallLocker smallLocker = generateSmallLocker(5);
-        Bag expectedBag = new Bag();
+        SmallBag expectedBag = new SmallBag();
 
         Ticket ticket = smallLocker.save(expectedBag);
         Bag actualBag = smallLocker.pickUp(ticket);

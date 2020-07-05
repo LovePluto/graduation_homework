@@ -7,7 +7,7 @@ public class SupperLockerRobot extends LockerRobot {
         super(lockers);
     }
 
-    public Ticket save(Bag bag) {
+    public Ticket save(LargeBag bag) {
         LargeLocker savedLocker = null;
         double vacancyRate = 0.00;
         for (LargeLocker locker : (List<LargeLocker>) getLockers()) {

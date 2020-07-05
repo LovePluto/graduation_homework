@@ -74,11 +74,13 @@ given: MiddleLocker, 不是 MiddleLocker 产生的 ticket
 when: 取包   
 then: 提示 ticket 类型错误   
 
-tasking 16
-
-given: LargeLocker, 不是 LargeLocker 产生的 ticket   
+tasking 16   
+given: LargeLocker, 不是 LargeLocker 产生的 ticket     
 when: 取包   
 then: 提示 ticket 类型错误   
+
+
+
 
 
 

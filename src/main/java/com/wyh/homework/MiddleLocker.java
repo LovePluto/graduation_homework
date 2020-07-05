@@ -6,7 +6,7 @@ public class MiddleLocker extends Locker<MiddleTicket> {
         super(capacity);
     }
 
-    public Ticket save(Bag bag) {
+    public Ticket save(MiddleBag bag) {
         return super.save(bag, MiddleTicket.class);
     }
 

@@ -9,7 +9,7 @@ public class LargeLocker extends Locker<LargeTicket> {
         return (double) getAvailableCapacity() / getCapacity();
     }
 
-    public Ticket save(Bag bag) {
+    public Ticket save(LargeBag bag) {
         return super.save(bag, LargeTicket.class);
     }
 

@@ -16,7 +16,7 @@ public class PrimaryLockerRobot extends LockerRobot {
         return super.pickUp(ticket);
     }
 
-    public Ticket save(Bag bag) {
+    public Ticket save(MiddleBag bag) {
 
         return getLockers().stream()
                        .filter(Locker::hasCapacity)

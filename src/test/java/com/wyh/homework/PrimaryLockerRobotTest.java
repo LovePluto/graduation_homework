@@ -12,7 +12,7 @@ public class PrimaryLockerRobotTest extends BaseTest {
     public void should_get_ticket_when_save_bag_given_primary_locker_robot_and_middle_locker() {
         PrimaryLockerRobot primaryLockerRobot = generatePrimaryLockerRobot(2, 5);
 
-        Ticket ticket = primaryLockerRobot.save(new Bag());
+        Ticket ticket = primaryLockerRobot.save(new MiddleBag());
 
         assertNotNull(ticket);
     }
@@ -20,7 +20,7 @@ public class PrimaryLockerRobotTest extends BaseTest {
     @Test
     public void should_get_bag_when_pick_up_given_primary_locker_robot_and_ticket() {
         PrimaryLockerRobot primaryLockerRobot = generatePrimaryLockerRobot(2, 5);
-        Bag expectedBag = new Bag();
+        MiddleBag expectedBag = new MiddleBag();
 
         Ticket ticket = primaryLockerRobot.save(expectedBag);
         Bag actualBag = primaryLockerRobot.pickUp(ticket);
@@ -34,9 +34,9 @@ public class PrimaryLockerRobotTest extends BaseTest {
         MiddleLocker middleLocker1 = new MiddleLocker(1);
         MiddleLocker middleLocker2 = new MiddleLocker(5);
         PrimaryLockerRobot primaryLockerRobot = new PrimaryLockerRobot(asList(middleLocker1, middleLocker2));
-        Bag expectedBag = new Bag();
+        MiddleBag expectedBag = new MiddleBag();
 
-        primaryLockerRobot.save(new Bag());
+        primaryLockerRobot.save(new MiddleBag());
         Ticket ticket = primaryLockerRobot.save(expectedBag);
         Bag actualBag = middleLocker2.pickUp(ticket);
 

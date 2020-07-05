@@ -10,7 +10,7 @@ public class MiddleLockerTest extends BaseTest{
     public void should_get_ticket_when_save_bag_given_middle_locker() {
         MiddleLocker middleLocker = generateMiddleLocker(5);
 
-        Ticket ticket = middleLocker.save(new Bag());
+        Ticket ticket = middleLocker.save(new MiddleBag());
 
         assertNotNull(ticket);
     }
@@ -18,7 +18,7 @@ public class MiddleLockerTest extends BaseTest{
     @Test
     public void should_get_bag_when_pick_up_given_middle_locker_and_ticket() {
         MiddleLocker middleLocker = generateMiddleLocker(5);
-        Bag expectedBag = new Bag();
+        MiddleBag expectedBag = new MiddleBag();
 
         Ticket ticket = middleLocker.save(expectedBag);
         Bag actualBag = middleLocker.pickUp(ticket);

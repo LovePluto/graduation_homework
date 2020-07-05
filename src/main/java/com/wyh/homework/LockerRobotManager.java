@@ -14,33 +14,27 @@ public class LockerRobotManager {
     }
 
     public Ticket save(Bag bag) {
-        Ticket ticket = smallLocker.save(bag);
-        if (ticket != null) {
-            return ticket;
+        if (bag instanceof SmallBag) {
+            return smallLocker.save((SmallBag) bag);
         }
-        ticket = primaryLockerRobot.save(bag);
-        if (ticket != null) {
-            return ticket;
+        if (bag instanceof MiddleBag) {
+            return primaryLockerRobot.save((MiddleBag) bag);
         }
-        ticket = supperLockerRobot.save(bag);
-        if (ticket != null) {
-            return ticket;
+        if (bag instanceof LargeBag) {
+            return supperLockerRobot.save((LargeBag) bag);
         }
         return null;
     }
 
     public Bag pickUp(Ticket ticket) {
-        Bag bag = smallLocker.pickUp(ticket);
-        if (bag != null) {
-            return bag;
+        if (ticket instanceof SmallTicket) {
+            return smallLocker.pickUp(ticket);
         }
-        bag = primaryLockerRobot.pickUp(ticket);
-        if (bag != null) {
-            return bag;
+        if (ticket instanceof MiddleTicket) {
+            return primaryLockerRobot.pickUp(ticket);
         }
-        bag = supperLockerRobot.pickUp(ticket);
-        if (bag != null) {
-            return bag;
+        if (ticket instanceof LargeTicket) {
+            return supperLockerRobot.pickUp(ticket);
         }
         return null;
     }
