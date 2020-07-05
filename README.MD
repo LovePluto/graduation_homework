@@ -54,6 +54,11 @@ given: SupperLockerRobot ticket
 when: 取包  
 then: 取包成功  
 
+tasking 12
+give: LockerRobotManager
+when: 存包
+then: 存包成功
+
 
 
 
