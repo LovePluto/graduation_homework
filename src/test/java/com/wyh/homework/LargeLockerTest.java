@@ -29,10 +29,10 @@ public class LargeLockerTest extends BaseTest{
     }
 
     @Test(expected = TicketTypeException.class)
-    public void should_throw_ticket_type_exception_when_pick_up_bag_given_large_locker_and_error_type_ticket() {
+    public void should_throw_ticket_type_exception_when_pick_up_bag_given_error_type_ticket() {
         LargeLocker largeLocker = generateLargeLocker(5);
 
-        largeLocker.pickUp(new Ticket());
+        largeLocker.pickUp(new SmallTicket());
     }
 
     @Test(expected = LockerIsFullException.class)

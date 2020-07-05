@@ -1,4 +1,4 @@
 package com.wyh.homework;
 
-public class Ticket {
+public abstract class Ticket {
 }

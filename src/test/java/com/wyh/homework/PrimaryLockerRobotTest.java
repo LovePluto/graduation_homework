@@ -48,7 +48,7 @@ public class PrimaryLockerRobotTest extends BaseTest {
     public void should_throw_ticket_type_exception_when_pick_up_bag_given_error_type_ticket() {
         PrimaryLockerRobot primaryLockerRobot = generatePrimaryLockerRobot(1, 1);
 
-        primaryLockerRobot.pickUp(new Ticket());
+        primaryLockerRobot.pickUp(new SmallTicket());
     }
 
     @Test(expected = LockerIsFullException.class)

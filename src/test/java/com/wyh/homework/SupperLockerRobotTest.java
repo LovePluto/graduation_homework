@@ -35,7 +35,7 @@ public class SupperLockerRobotTest extends BaseTest {
     public void should_throw_ticket_type_exception_when_pick_up_bag_given_error_type_ticket() {
         SupperLockerRobot supperLockerRobot = generateSupperLockerRobot(1, 1);
 
-        supperLockerRobot.pickUp(new Ticket());
+        supperLockerRobot.pickUp(new SmallTicket());
     }
 
     @Test(expected = LockerIsFullException.class)

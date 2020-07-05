@@ -28,10 +28,10 @@ public class MiddleLockerTest extends BaseTest{
     }
 
     @Test(expected = TicketTypeException.class)
-    public void should_throw_ticket_type_exception_when_pick_up_bag_given_middle_locker_and_error_type_ticket() {
+    public void should_throw_ticket_type_exception_when_pick_up_bag_given_error_type_ticket() {
         MiddleLocker middleLocker = generateMiddleLocker(5);
 
-        middleLocker.pickUp(new Ticket());
+        middleLocker.pickUp(new SmallTicket());
     }
 
     @Test(expected = LockerIsFullException.class)
