@@ -84,10 +84,10 @@ given: 存满的 locker
 when: 存包   
 then: 提示 locker 已经存满   
 
-tasking 18
-given: 无效的 ticket
-when: 取包
-then: 提示 ticket 无效
+tasking 18   
+given: 无效的 ticket   
+when: 取包   
+then: 提示 ticket 无效   
 
 
 
