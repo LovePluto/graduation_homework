@@ -13,12 +13,12 @@ public class SupperLockerRobotTest {
         LargeLocker largeLocker2 = new LargeLocker(5);
         SupperLockerRobot supperLockerRobot = new SupperLockerRobot(asList(largeLocker1, largeLocker2));
         largeLocker1.save(new Bag());
-        Bag exceptedBag = new Bag();
+        Bag expectedBag = new Bag();
 
-        Ticket ticket = supperLockerRobot.save(exceptedBag);
+        Ticket ticket = supperLockerRobot.save(expectedBag);
 
         assertNotNull(ticket);
-        assertSame(exceptedBag, largeLocker2.pickUp(ticket));
+        assertSame(expectedBag, largeLocker2.pickUp(ticket));
     }
 
     @Test
@@ -26,10 +26,10 @@ public class SupperLockerRobotTest {
         LargeLocker largeLocker1 = new LargeLocker(5);
         LargeLocker largeLocker2 = new LargeLocker(5);
         SupperLockerRobot supperLockerRobot = new SupperLockerRobot(asList(largeLocker1, largeLocker2));
-        Bag exceptedBag = new Bag();
+        Bag expectedBag = new Bag();
 
-        Ticket ticket = supperLockerRobot.save(exceptedBag);
+        Ticket ticket = supperLockerRobot.save(expectedBag);
 
-        assertSame(exceptedBag,supperLockerRobot.pickUp(ticket));
+        assertSame(expectedBag,supperLockerRobot.pickUp(ticket));
     }
 }

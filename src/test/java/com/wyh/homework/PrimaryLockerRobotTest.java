@@ -22,13 +22,13 @@ public class PrimaryLockerRobotTest {
     public void should_get_bag_when_pick_up_given_primary_locker_robot_and_ticket() {
         MiddleLocker middleLocker = new MiddleLocker(5);
         PrimaryLockerRobot primaryLockerRobot = new PrimaryLockerRobot(singletonList(middleLocker));
-        Bag exceptedBag = new Bag();
+        Bag expectedBag = new Bag();
 
-        Ticket ticket = primaryLockerRobot.save(exceptedBag);
+        Ticket ticket = primaryLockerRobot.save(expectedBag);
         Bag actualBag = primaryLockerRobot.pickUp(ticket);
 
         assertNotNull(ticket);
-        assertSame(exceptedBag, actualBag);
+        assertSame(expectedBag, actualBag);
     }
 
     @Test
@@ -36,13 +36,13 @@ public class PrimaryLockerRobotTest {
         MiddleLocker middleLocker1 = new MiddleLocker(1);
         MiddleLocker middleLocker2 = new MiddleLocker(5);
         PrimaryLockerRobot primaryLockerRobot = new PrimaryLockerRobot(asList(middleLocker1, middleLocker2));
-        Bag exceptedBag = new Bag();
+        Bag expectedBag = new Bag();
 
         primaryLockerRobot.save(new Bag());
-        Ticket ticket = primaryLockerRobot.save(exceptedBag);
+        Ticket ticket = primaryLockerRobot.save(expectedBag);
         Bag actualBag = middleLocker2.pickUp(ticket);
 
         assertNotNull(ticket);
-        assertSame(exceptedBag, actualBag);
+        assertSame(expectedBag, actualBag);
     }
 }

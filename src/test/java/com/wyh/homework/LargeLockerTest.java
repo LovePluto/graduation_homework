@@ -19,12 +19,12 @@ public class LargeLockerTest {
     @Test
     public void should_get_bag_when_pick_up_given_large_locker_and_ticket() {
         LargeLocker largeLocker = new LargeLocker(5);
-        Bag exceptedBag = new Bag();
+        Bag expectedBag = new Bag();
 
-        Ticket ticket = largeLocker.save(exceptedBag);
+        Ticket ticket = largeLocker.save(expectedBag);
         Bag actualBag = largeLocker.pickUp(ticket);
 
         assertNotNull(ticket);
-        assertSame(exceptedBag,actualBag);
+        assertSame(expectedBag,actualBag);
     }
 }
