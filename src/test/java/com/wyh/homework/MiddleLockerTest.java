@@ -34,6 +34,13 @@ public class MiddleLockerTest extends BaseTest{
         middleLocker.pickUp(new Ticket());
     }
 
+    @Test(expected = LockerIsFullException.class)
+    public void should_throw_locker_is_full_exception_when_save_bag_given_locker_is_full() {
+        MiddleLocker middleLocker = generateMiddleLocker(1);
+        middleLocker.save(new MiddleBag());
+        middleLocker.save(new MiddleBag());
+    }
+
     @Test(expected = TicketInvalidException.class)
     public void should_throw_ticket_is_invalid_exception_when_pick_up_bag_given_ticket_is_invalid() {
         MiddleLocker middleLocker = generateMiddleLocker(1);

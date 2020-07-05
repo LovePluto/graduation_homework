@@ -31,6 +31,13 @@ public class SupperLockerRobotTest extends BaseTest {
         assertSame(expectedBag, supperLockerRobot.pickUp(ticket));
     }
 
+    @Test(expected = TicketTypeException.class)
+    public void should_throw_ticket_type_exception_when_pick_up_bag_given_error_type_ticket() {
+        SupperLockerRobot supperLockerRobot = generateSupperLockerRobot(1, 1);
+
+        supperLockerRobot.pickUp(new Ticket());
+    }
+
     @Test(expected = LockerIsFullException.class)
     public void should_throw_locker_is_full_exception_when_save_bag_given_locker_is_full() {
         SupperLockerRobot supperLockerRobot = generateSupperLockerRobot(1, 1);

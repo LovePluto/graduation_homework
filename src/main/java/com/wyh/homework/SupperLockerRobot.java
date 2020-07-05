@@ -20,6 +20,13 @@ public class SupperLockerRobot extends LockerRobot {
             throw new LockerIsFullException();
         }
         return savedLocker.save(bag, LargeTicket.class);
+    }
 
+    @Override
+    public Bag pickUp(Ticket ticket) {
+        if (!(ticket instanceof LargeTicket)){
+            throw new TicketTypeException();
+        }
+        return super.pickUp(ticket);
     }
 }
